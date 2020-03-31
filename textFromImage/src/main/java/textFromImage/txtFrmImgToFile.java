@@ -10,15 +10,15 @@ import org.bytedeco.javacpp.tesseract.TessBaseAPI;
 	public class txtFrmImgToFile {
 		public static void main(String[] args) throws IOException {
 			TessBaseAPI  instance = new TessBaseAPI();
-			instance.Init("D:\\New folder\\readText", "eng");
+			instance.Init("D:\\New folder\\readText", "eng");  //path of your tess data folder 
 			
-			PIX image = lept.pixRead("D:\\New folder\\readText\\img.jpg");
+			PIX image = lept.pixRead("D:\\New folder\\readText\\img.jpg"); //path of your image file
 			instance.SetImage(image);
 			
 			BytePointer bytePointer = instance.GetUTF8Text();
 			String output = bytePointer.getString();
 			
-			BufferedWriter writer = new BufferedWriter(new FileWriter(("D:\\New folder\\readText\\text of Image\\ImgOutput.txt")));
+			BufferedWriter writer = new BufferedWriter(new FileWriter(("D:\\New folder\\readText\\text of Image\\ImgOutput.txt"))); 
 			 writer.write(output);
 			 writer.close();
 			  
